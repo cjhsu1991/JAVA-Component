@@ -26,5 +26,5 @@
         * 輸出資料確認
         */
         System.out.println(scriptContent);
-}
+    }
 ```
