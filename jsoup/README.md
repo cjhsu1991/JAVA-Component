@@ -14,20 +14,29 @@
     import org.jsoup.nodes.Document;
     import org.jsoup.select.Elements;
     public static void main(String args[]) throws IOException {
-	/**
+	    /**
         * 爬取某個網址的資料
         */
         Document doc = Jsoup.connect("你要爬取的網址").get();
         
         /**
-        * 取得某段 script 中的資訊，以這段為例是取得 <script type="application/Id+json"></script> 的 html 原始碼
+        * 取得某段 script 中的資訊，以這段為例是取得 <script type="application/Id+json"></script> 的 html 原始碼並輸出 remove html tag 後的資料
         */
         Elements scriptElements = doc.select("script[type=\"application/ld+json\"]");
         String scriptContent = scriptElements.first().html();
+        System.out.println(scriptContent);
 
         /**
-        * 輸出資料確認
+        * 取得 <title></title> 內的資訊，並輸出 remove html tag 後的資料
         */
-        System.out.println(scriptContent);
+        Elements title = doc.select("title");
+		System.out.println("title:" + title.text());
+
+        /**
+        * 取得 <img src=""/> 取得 img tag 的 src 內的資訊
+        */
+        Element img = doc.select("img").first();
+        String src = img.attr("src"); /*若要取得 img 的 title 資訊的話則改成 String src = img.attr("title"); */
+        System.out.println(src);
     }
 ```
