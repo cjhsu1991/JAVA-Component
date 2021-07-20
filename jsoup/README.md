@@ -14,7 +14,7 @@
     import org.jsoup.nodes.Document;
     import org.jsoup.select.Elements;
     public static void main(String args[]) throws IOException {
-	    /**
+	/**
         * 爬取某個網址的資料
         */
         Document doc = Jsoup.connect("你要爬取的網址").get();
