@@ -10,6 +10,9 @@
 
 ### Step 2: 新增一個 java file
 ```
+　  import org.jsoup.Jsoup;
+    import org.jsoup.nodes.Document;
+    import org.jsoup.select.Elements;
     public static void main(String args[]) throws IOException {
 	/**
         * 爬取某個網址的資料
